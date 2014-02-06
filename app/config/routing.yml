@@ -1,0 +1,5 @@
+dream89_main:
+    resource: "@Dream89MainBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
