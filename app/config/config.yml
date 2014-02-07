@@ -77,12 +77,17 @@ swiftmailer:
     spool:     { type: memory }
 
 sensio_framework_extra:
-    view:
-        annotations: false
+    view:    { annotations: false }
+    router:  { annotations: true }
 
 fos_rest:
-    param_fetcher_listener: true
-    body_listener: true
-    format_listener: true
+    format_listener:
+      rules:
+          - { path: ^/, priorities: [ json, xml ], fallback_format: ~, prefer_extension: false }
     view:
-        view_response_listener: true
+        view_response_listener: 'force'
+        formats:
+            xml:  true
+            json: true
+        templating_formats:
+            html: true
