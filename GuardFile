@@ -1,0 +1,7 @@
+guard :shell do
+    # MainBundle
+	watch(%r{^src/Dream89/MainBundle/.*}) {
+        system("clear");
+        system('phpunit -c app/phpunit.xml.dist');
+    }
+end
