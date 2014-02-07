@@ -6,3 +6,7 @@ dream89_main:
 users:
    type: rest
    resource: Dream89\MainBundle\Controller\UserController
+
+favorites:
+   type: rest
+   resource: Dream89\MainBundle\Controller\FavoriteController
