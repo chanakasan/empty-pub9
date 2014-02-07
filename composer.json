@@ -21,7 +21,11 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "jms/serializer-bundle": "@stable",
         "friendsofsymfony/rest-bundle": "@stable",
-        "doctrine/doctrine-fixtures-bundle": "dev-master"
+        "doctrine/doctrine-fixtures-bundle": "dev-master",
+        "jackalope/jackalope-doctrine-dbal": "1.1.*@RC",
+        "doctrine/phpcr-bundle": "1.1.*@beta",
+        "doctrine/phpcr-odm": "1.1.*@beta",
+        "jackalope/jackalope-jackrabbit": "1.1.*"
     },
     "scripts": {
         "post-install-cmd": [
@@ -42,7 +46,7 @@
     "config": {
         "bin-dir": "bin"
     },
-    "minimum-stability": "stable",
+    "minimum-stability": "RC",
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
