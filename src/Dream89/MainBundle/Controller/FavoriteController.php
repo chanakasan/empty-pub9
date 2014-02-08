@@ -11,7 +11,7 @@ class FavoriteController extends Controller {
      * @return array
      * @View()
      */
-    function getFavorites()
+    function getFavoritesAction()
     {
         $favorites = $this->get('doctrine_phpcr')->getManager()
             ->getRepository('Dream89\MainBundle\Document\FavoriteItem')
