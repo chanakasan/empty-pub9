@@ -1,0 +1,16 @@
+services:
+    # remove when https://github.com/sensio/SensioFrameworkExtraBundle/pull/115 is merged
+    dream89_main.converter.doctrine.phpcr:
+        class: %sensio_framework_extra.converter.doctrine.class%
+        tags:
+            - { name: request.param_converter}
+        arguments:
+            phpcr: @?doctrine_phpcr
+
+
+    dream89_main.favorites.phpcr.initializer:
+        class: Doctrine\Bundle\PHPCRBundle\Initializer\GenericInitializer
+        arguments:
+            - ["/cms/content/favorites"]
+        tags:
+            - { name: doctrine_phpcr.initializer}
