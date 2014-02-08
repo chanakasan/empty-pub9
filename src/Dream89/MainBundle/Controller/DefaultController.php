@@ -1,5 +1,4 @@
 <?php
-
 namespace Dream89\MainBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -9,11 +8,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/hello/{name}")
-     * @Template()
+     * @Route("/")
      */
-    public function indexAction($name)
+    public function indexAction()
     {
-        return array('name' => $name);
+        $name = 'World';
+        return $this->render('Dream89MainBundle:Default:index.html.twig', array('name' => $name));
     }
 }

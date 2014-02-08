@@ -83,11 +83,12 @@ sensio_framework_extra:
 fos_rest:
     format_listener:
       rules:
-          - { path: ^/, priorities: [ json, xml ], fallback_format: ~, prefer_extension: false }
+          - { path: ^/, priorities: [ json, xml, html ], fallback_format: ~, prefer_extension: false }
     view:
         view_response_listener: 'force'
         formats:
-            xml:  true
+            html: true
             json: true
+            xml:  true
         templating_formats:
             html: true

@@ -1,3 +1,8 @@
+dream89_main:
+    resource: "@Dream89MainBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 rest :
   type : rest
   resource : "routing_rest.yml"
