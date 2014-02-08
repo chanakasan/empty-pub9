@@ -1,12 +1,4 @@
-dream89_main:
-    resource: "@Dream89MainBundle/Controller/"
-    type:     annotation
-    prefix:   /
-
-users:
-   type: rest
-   resource: Dream89\MainBundle\Controller\UserController
-
-favorites:
-   type: rest
-   resource: Dream89\MainBundle\Controller\FavoriteController
+rest :
+  type : rest
+  resource : "routing_rest.yml"
+  prefix : /api

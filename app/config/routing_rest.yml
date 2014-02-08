@@ -1,0 +1,7 @@
+rest_users:
+    type: rest
+    resource: "@Dream89MainBundle/Resources/config/routing_users.yml"
+
+rest_favorites:
+    type: rest
+    resource: "@Dream89MainBundle/Resources/config/routing_favorites.yml"

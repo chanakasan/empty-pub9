@@ -1,0 +1,5 @@
+dream89_main_favorites:
+   type: rest
+   resource: Dream89\MainBundle\Controller\FavoriteController
+   prefix: /v1
+   name_prefix:  api_1_ # naming collision
