@@ -1,5 +1,25 @@
 {% extends 'Dream89MainBundle::base.html.twig' %}
 
 {% block content %}
+    <div id="app"></div>
+    <br/>
     Hello {{ name }}!
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <!-- lib -->
+    <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/lib/underscore-min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/lib/backbone-min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/lib/handlebars.runtime.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/templates/templates.js') }}"></script>
+    <!-- app -->
+    <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/models/favoriteItem.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/collections/favorites.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/views/favorites.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/views/favoriteItemForm.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/views/favoriteItemDetails.js') }}"></script>
+
+    <!-- main -->
+    <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/app.js') }}"></script>
 {% endblock %}

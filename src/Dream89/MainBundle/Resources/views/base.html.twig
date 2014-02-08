@@ -21,9 +21,11 @@
 <body>
 {% block content %}{% endblock %}
 
+{% block javascripts %}
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="{{ asset('bundles/dream89main/app/js/lib/jquery.min.js') }}"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="{{ asset('bundles/dream89main/assets/bootstrap/js/bootstrap.min.js') }}"></script>
+{% endblock %}
 </body>
 </html>
