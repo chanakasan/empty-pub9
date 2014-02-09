@@ -9,11 +9,15 @@ class LoadFavoritesData implements FixtureInterface {
 
     function load(ObjectManager $manager)
     {
-        $fav_item = new FavoriteItem();
-        $fav_item->setName('Example page');
-        $fav_item->setUrl('/page/example-page');
+        foreach(array('Free iOS Apps', 'Hacker News', '10 Useless things for you to read', 'Very Useless blog post') as $item)
+        {
+            $fav_item = new FavoriteItem();
+            $fav_item->setName($item);
+            $fav_item->setUrl('/page/dummy-url');
 
-        $manager->persist($fav_item);
+            $manager->persist($fav_item);
+        }
+
         $manager->flush();
     }
 } 
