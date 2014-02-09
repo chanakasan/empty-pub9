@@ -1,10 +1,12 @@
 <?php
 namespace Dream89\MainBundle\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Config\Definition\Exception\Exception;
 
 class RestController extends Controller {
 
+    protected $basePath ='/cms/content/favorites/';
     /**
      * Get all items
      * GET
@@ -13,10 +15,27 @@ class RestController extends Controller {
      */
     function getFavoritesAction()
     {
-        $favorites = $this->get('doctrine_phpcr')->getManager()
+        $results = $this->get('doctrine_phpcr')->getManager()
             ->getRepository('Dream89\MainBundle\Document\FavoriteItem')
             ->findAll();
-        return json_encode($favorites);
+
+        $data = array();
+
+        foreach($results as $result)
+        {
+            /**
+             * @var $obj \Dream89\MainBundle\Document\FavoriteItem
+             */
+            $obj = $result;
+            $tmp = array(
+              'id' => $obj->getId(),
+              'name' => $obj->getName(),
+              'url' => $obj->getUrl(),
+              'tags' => $obj->getTags(),
+            );
+            $data[] = $tmp;
+        }
+        return $this->render('Dream89MainBundle:Rest:json.html.twig', array('data' => $data));
     }
 
     /**
@@ -26,14 +45,24 @@ class RestController extends Controller {
      */
     function getFavoriteAction($favoriteItem)
     {
-        $data = $this->get('doctrine_phpcr')->getManager()
-            ->getRepository('Dream89\MainBundle\Document\FavoriteItem')
-            ->find('Dream89\MainBundle\Document\FavoriteItem', '/cms/content/favorites/'.$favoriteItem);
+        $result = $this->get('doctrine_phpcr')->getManager()
+            ->find('Dream89\MainBundle\Document\FavoriteItem', $this->basePath.$favoriteItem);
+
+        /**
+         * @var $obj \Dream89\MainBundle\Document\FavoriteItem
+         */
+        $obj = $result;
+        $data = array(
+            'id' => $obj->getId(),
+            'name' => $obj->getName(),
+            'url' => $obj->getUrl(),
+            'tags' => $obj->getTags(),
+        );
 
         try {
-            if($data->getName() != $favoriteItem)
+            if($data['name'] != $favoriteItem)
             {
-                throw new Exception('Invalid name in returned data: '. $data->getName());
+                throw new Exception('Invalid name in returned data: '. $data['name']);
             }
         } catch(Exception $e)
         {
@@ -43,6 +72,6 @@ class RestController extends Controller {
             );
             return json_encode($data);
         }
-        return json_encode($data);
+        return $this->render('Dream89MainBundle:Rest:json.html.twig', array('data' => $data));
     }
 } 

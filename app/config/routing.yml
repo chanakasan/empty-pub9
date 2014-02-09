@@ -7,3 +7,13 @@ rest :
   type : rest
   resource : "routing_rest.yml"
   prefix : /api
+
+dream89_main_get_favorites:
+   path: /api/v1/favorites
+   defaults: {_controller: Dream89MainBundle:Rest:getFavorites }
+   methods: [get]
+
+dream89_main_get_favorite:
+   path: /api/v1/favorites/{favoriteItem}
+   defaults: {_controller: Dream89MainBundle:Rest:getFavorite }
+   methods: [get]
