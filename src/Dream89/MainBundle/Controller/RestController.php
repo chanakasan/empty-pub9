@@ -62,6 +62,12 @@ class RestController extends Controller {
         $this->_checkResult($result, $favoriteItem);
         $dm->remove($result);
         $dm->flush();
+        $data = array(
+            'message' => sprintf("Item '%s' removed.", $result->getName()),
+            'success' => true,
+        );
+        echo json_encode($data);
+        exit;
     }
 
     private function _checkResult($result, $favoriteItem)
