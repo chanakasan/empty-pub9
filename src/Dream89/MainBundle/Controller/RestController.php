@@ -70,6 +70,33 @@ class RestController extends Controller {
         exit;
     }
 
+    /**
+     * Delete a record
+     * POST | DELETE
+     */
+    function updateAction($favoriteItem)
+    {
+        $dm = $this->get('doctrine_phpcr')->getManager();
+
+        /**
+         * @var $result \Dream89\MainBundle\Document\FavoriteItem
+         */
+        $result = $dm->find('Dream89\MainBundle\Document\FavoriteItem', $this->basePath.$favoriteItem);
+
+        $this->_checkResult($result, $favoriteItem);
+        $result = $this->_updateResult($result);
+
+        $dm->persist($result);
+        $dm->flush();
+
+        $data = array(
+            'message' => sprintf("Item '%s' removed.", $result->getName()),
+            'success' => true,
+        );
+        echo json_encode($data);
+        exit;
+    }
+
     private function _checkResult($result, $favoriteItem)
     {
         try {
@@ -98,6 +125,25 @@ class RestController extends Controller {
             'url' => $obj->getUrl(),
             'tags' => $obj->getTags(),
         );
+    }
+
+    private function _updateResult($result)
+    {
+        /**
+         * @var $result \Dream89\MainBundle\Document\FavoriteItem
+         */
+        $name = $this->getRequest()->get('name');
+        $url = $this->getRequest()->get('url');
+        $tags = $this->getRequest()->get('tags');
+
+        if($url != null)
+        {
+            $result->setUrl($url);
+        }
+        $result->setName($name);
+        $result->setTags($tags);
+
+        return $result;
     }
 
 } 
