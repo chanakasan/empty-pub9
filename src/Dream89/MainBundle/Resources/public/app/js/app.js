@@ -1,7 +1,7 @@
 var AppRouter = Backbone.Router.extend({
     routes: {
-        "": "list",
-        "favorites/:item": "itemDetails"
+        "app_dev.php": "list",
+        "app_dev.php/favorites/:item": "itemDetails"
     },
 
     initialize: function  () {
@@ -14,7 +14,10 @@ var AppRouter = Backbone.Router.extend({
             }
         );
 
+        // Fetch items
+        this.favorites.fetch();
         this.favoritesView = new FavoritesView({collection: this.favorites});
+        $('#app').html(this.favoritesView.render().el);
     },
 
     list: function () {

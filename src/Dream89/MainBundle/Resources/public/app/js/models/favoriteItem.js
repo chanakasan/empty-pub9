@@ -1,8 +1,8 @@
 var FavoriteItem = Backbone.Model.extend({
-    urlRoot: '/api/v1/favorites',
+    urlRoot: '/app_dev.php/api/v1/favorites',
     defaults: {
         name: '',
         url: '',
-        tags: ''
+        tags: []
     }
 });

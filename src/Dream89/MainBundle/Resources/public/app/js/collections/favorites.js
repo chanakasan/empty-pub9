@@ -1,5 +1,5 @@
 var Favorites = Backbone.Collection.extend({
     comparator: 'name',
     model: FavoriteItem,
-    url: '/api/v1/favorites'
+    url: '/app_dev.php/api/v1/favorites'
 });
