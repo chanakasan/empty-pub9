@@ -27,3 +27,8 @@ dream89_main_update_favorite:
    path: /api/v1/favorites/{favoriteItem}
    defaults: {_controller: Dream89MainBundle:Rest:update }
    methods: [POST, PUT]
+
+dream89_main_create_favorite:
+   path: /api/v1/favorites
+   defaults: {_controller: Dream89MainBundle:Rest:create }
+   methods: [POST]
