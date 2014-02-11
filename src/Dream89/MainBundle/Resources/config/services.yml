@@ -14,3 +14,10 @@ services:
             - ["/cms/content/favorites"]
         tags:
             - { name: doctrine_phpcr.initializer}
+
+    dream89.twig.static_includes_extension:
+        class: Dream89\MainBundle\Twig\StaticIncludesExtension
+        arguments:
+            - "@kernel"
+        tags:
+            - { name: twig.extension }
