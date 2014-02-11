@@ -3,6 +3,8 @@
 {% block stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('bundles/dream89main/assets/jquery-toolbar/toolbars.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/dream89main/assets/font-awesome/css/fa.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('bundles/dream89main/app/css/main.css') }}"/>
 {% endblock %}
 {% block content %}
     <br/><br/>
@@ -11,7 +13,7 @@
     <br/>
     <div class="row">
         <div class="col-md-6">
-            <p><i class="glyphicon glyphicon-star"></i> My Favorites</p>
+            <p><i class="fa fa-star"></i> My Favorites</p>
         </div>
         <div class="col-md-6">
             <a id="settings-btn" class="settings-button">
@@ -21,7 +23,7 @@
     </div>
     <hr/>
     <div id="user-toolbar-options" class="toolbar-icons" style="display: none;">
-        <a href="#"><i class="glyphicon glyphicon-star"></i></a>
+        <a href="/#/favorites/new"><i class="fa fa-star fa-2x ico-white"></i></a>
     </div>
 
     <div id="app"></div>
