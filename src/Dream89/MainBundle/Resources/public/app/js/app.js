@@ -1,6 +1,6 @@
 window.AppRouter = Backbone.Router.extend({
     routes: {
-        "list": "list",
+        "": "list",
         "favorites/new": "itemForm",
         "favorites/:item": "itemDetails"
     },
@@ -20,6 +20,7 @@ window.AppRouter = Backbone.Router.extend({
     },
 
     list: function () {
+        this.favorites.fetch();
         $('#app').html(this.favoritesView.render().el);
     },
 
@@ -36,5 +37,5 @@ window.AppRouter = Backbone.Router.extend({
 window.app = new AppRouter();
 
 $(function() {
-    Backbone.history.start();
+    Backbone.history.start({});
 });
