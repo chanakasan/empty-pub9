@@ -1,5 +1,9 @@
 {% extends 'Dream89MainBundle::base.html.twig' %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/dream89main/assets/jquery-toolbar/toolbars.css') }}"/>
+{% endblock %}
 {% block content %}
     <br/><br/>
     Hello {{ name }}!
@@ -7,6 +11,13 @@
     <br/>
     <p><i class="glyphicon glyphicon-star"></i> My Favorites</p>
     <hr/>
+    <div id="settings-btn" class="settings-button">
+        <img src="{{ asset('bundles/dream89main/app/img/icon-cog.png') }}" />
+    </div>
+    <div id="user-toolbar-options" class="toolbar-icons" style="display: none;">
+        <a href="#"><i class="glyphicon glyphicon-star"></i></a>
+    </div>
+
     <div id="app"></div>
     <!-- Handlebars templates-->
     <div class="handlebars_templates">
@@ -24,6 +35,8 @@
     <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/lib/underscore-min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/lib/backbone-min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/lib/handlebars.js') }}"></script>
+    <script src="{{ asset('bundles/dream89main/assets/jquery-toolbar/toolbar.min.js') }}"></script>
+
     <!-- app -->
     <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/models/favoriteItem.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/collections/favorites.js') }}"></script>
@@ -33,4 +46,10 @@
 
     <!-- main -->
     <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/app.js') }}"></script>
+    <script>
+        $('#settings-btn').toolbar({
+            content: '#user-toolbar-options',
+            position: 'top'
+        });
+    </script>
 {% endblock %}

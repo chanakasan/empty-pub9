@@ -1,7 +1,9 @@
-var FavoriteItemForm = Backbone.View.extend({
+window.FavoriteItemForm = Backbone.View.extend({
+
+    template: Handlebars.compile($('#favorites-form-template').text()),
 
     render: function  () {
-        this.$el.html(Handlebars.templates.form());
+        this.$el.html(this.template());
         this.delegateEvents({
             'click .btn-primary': 'save'
         });

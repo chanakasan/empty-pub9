@@ -1,5 +1,6 @@
 var FavoriteItemDetails = Backbone.View.extend({
 
+    template: Handlebars.compile($('#favorites-details-template').text()),
 
     initialize: function  () {
         this.listenTo(this.model, "change", this.render);
@@ -17,7 +18,7 @@ var FavoriteItemDetails = Backbone.View.extend({
     },
 
     render: function () {
-        this.$el.html(Handlebars.templates.details(this.model.attributes));
+        this.$el.html(this.template(this.model.attributes));
         this.delegateEvents({
             'click .btn-danger': 'deleteItem'
         });

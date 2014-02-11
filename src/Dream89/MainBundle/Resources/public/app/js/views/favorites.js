@@ -1,4 +1,4 @@
-var FavoritesView = Backbone.View.extend({
+window.FavoritesView = Backbone.View.extend({
 
     template: Handlebars.compile($('#favorites-list-template').text()),
 

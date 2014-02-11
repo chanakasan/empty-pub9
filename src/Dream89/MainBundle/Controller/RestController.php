@@ -81,7 +81,8 @@ class RestController extends Controller {
         } catch(\PHPCR\ItemExistsException $e) {
             $this->_sendFailedMsg(sprintf('Item %s already exists', $favorite->getName()));
         }
-        $this->_sendSuccessMsg(sprintf("Item '%s' created.", $favorite->getName()));
+        $data = $this->_serialize($favorite);
+        return $this->render('Dream89MainBundle:Rest:json.html.twig', array('data' => $data));
     }
 
 
@@ -104,8 +105,6 @@ class RestController extends Controller {
 
         return $favorite;
     }
-
-
 
     /**
      * Update a record

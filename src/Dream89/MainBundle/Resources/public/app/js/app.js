@@ -1,6 +1,6 @@
-var AppRouter = Backbone.Router.extend({
+window.AppRouter = Backbone.Router.extend({
     routes: {
-        "": "list",
+        "list": "list",
         "favorites/new": "itemForm",
         "favorites/:item": "itemDetails"
     },
@@ -17,14 +17,6 @@ var AppRouter = Backbone.Router.extend({
 
         this.favoritesView = new FavoritesView({collection: this.favorites});
         this.favoriteItemForm = new FavoriteItemForm({model: new FavoriteItem()});
-        this.manual_init();
-    },
-
-    // Fetch items
-    manual_init : function () {
-
-        this.favorites.fetch();
-        $('#app').html(this.favoritesView.render().el);
     },
 
     list: function () {
@@ -41,7 +33,7 @@ var AppRouter = Backbone.Router.extend({
     }
 });
 
-var app = new AppRouter();
+window.app = new AppRouter();
 
 $(function() {
     Backbone.history.start();
