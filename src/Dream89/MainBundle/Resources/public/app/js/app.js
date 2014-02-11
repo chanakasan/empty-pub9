@@ -1,7 +1,8 @@
 var AppRouter = Backbone.Router.extend({
     routes: {
-        "app_dev.php": "list",
-        "app_dev.php/favorites/:item": "itemDetails"
+        "": "list",
+        "favorites/new": "itemForm",
+        "favorites/:item": "itemDetails"
     },
 
     initialize: function  () {
@@ -14,9 +15,15 @@ var AppRouter = Backbone.Router.extend({
             }
         );
 
-        // Fetch items
-        this.favorites.fetch();
         this.favoritesView = new FavoritesView({collection: this.favorites});
+        this.favoriteItemForm = new FavoriteItemForm({model: new FavoriteItem()});
+        this.manual_init();
+    },
+
+    // Fetch items
+    manual_init : function () {
+
+        this.favorites.fetch();
         $('#app').html(this.favoritesView.render().el);
     },
 
@@ -27,6 +34,10 @@ var AppRouter = Backbone.Router.extend({
     itemDetails: function (item) {
         this.favoriteItemView.model = this.favorites.get(item);
         $('#app').html(this.favoriteItemView.render().el);
+    },
+
+    itemForm: function () {
+        $('#app').html(this.favoriteItemForm.render().el);
     }
 });
 

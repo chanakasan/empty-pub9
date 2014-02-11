@@ -8,6 +8,14 @@
     <p><i class="glyphicon glyphicon-star"></i> My Favorites</p>
     <hr/>
     <div id="app"></div>
+    <!-- Handlebars templates-->
+    <div class="handlebars_templates">
+        {% autoescape false %}
+            {{ includeFile('@Dream89MainBundle/Resources/public/app/js/templates/form.handlebars') }}
+            {{ includeFile('@Dream89MainBundle/Resources/public/app/js/templates/details.handlebars') }}
+            {{ includeFile('@Dream89MainBundle/Resources/public/app/js/templates/list.handlebars') }}
+        {% endautoescape %}
+    </div>
 {% endblock %}
 
 {% block javascripts %}
@@ -15,8 +23,7 @@
     <!-- lib -->
     <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/lib/underscore-min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/lib/backbone-min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/lib/handlebars.runtime.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/templates/templates.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/lib/handlebars.js') }}"></script>
     <!-- app -->
     <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/models/favoriteItem.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/dream89main/app/js/collections/favorites.js') }}"></script>
