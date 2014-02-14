@@ -17,6 +17,9 @@ window.AppRouter = Backbone.Router.extend({
 
         this.favoritesView = new FavoritesView({collection: this.favorites});
         this.favoriteItemForm = new FavoriteItemForm({model: new FavoriteItem()});
+
+//        Create favorite btn
+        this.btnView = new BtnView({el:'#dream89-fav-btn'});
     },
 
     list: function () {

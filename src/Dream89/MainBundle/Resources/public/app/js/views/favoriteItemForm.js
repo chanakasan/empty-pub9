@@ -30,6 +30,16 @@ window.FavoriteItemForm = Backbone.View.extend({
             id: null,
             url: this.$el.find('input[name="url"]').val()
         });
+    },
+
+    events: {
+        "click .dream89-fav-btn": "addClicked"
+    },
+
+    addClicked: function(e){
+        e.preventDefault();
+        this.render();
+        console.log("form ...");
     }
 
 });
