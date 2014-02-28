@@ -1,11 +1,13 @@
-# This file is auto-generated during the composer install
 parameters:
+    # Enter your database settings below
     database_driver: pdo_mysql
     database_host: localhost
     database_port: null
     database_name: rest_demo
     database_user: root
     database_password: root
+
+    # Optional
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: null

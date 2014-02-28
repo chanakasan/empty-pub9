@@ -12,7 +12,7 @@ The favorite items are stored in a tree-like structure using PHPCR, which allows
     cd rest_demo  # cd to project folder
     curl -s http://getcomposer.org/installer | php  # install composer
     php composer.phar install # install libraries
-    chmod +x -R scripts/ # set permission for scripts
+    chmod -R +x scripts/ # set permission for scripts
     # manual step :( enter database settings
     vim app/config/parameters.yml
     ./scripts/update-schema.sh # load the database

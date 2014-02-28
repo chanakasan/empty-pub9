@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "ea7a8ec2d2b2e571993452ebfa29392b",
+    "hash": "660e5cc385b235298028d197dfb2da6e",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2521,16 +2521,16 @@
         },
         {
             "name": "willdurand/negotiation",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/willdurand/Negotiation.git",
-                "reference": "84c855a0a9318b29b2535ca88a86e899d7ac4bda"
+                "reference": "d1347ba8208a449c5aa0bf13cd7b65298c59257e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/willdurand/Negotiation/zipball/84c855a0a9318b29b2535ca88a86e899d7ac4bda",
-                "reference": "84c855a0a9318b29b2535ca88a86e899d7ac4bda",
+                "url": "https://api.github.com/repos/willdurand/Negotiation/zipball/d1347ba8208a449c5aa0bf13cd7b65298c59257e",
+                "reference": "d1347ba8208a449c5aa0bf13cd7b65298c59257e",
                 "shasum": ""
             },
             "require": {
@@ -2567,7 +2567,7 @@
                 "header",
                 "negotiation"
             ],
-            "time": "2014-02-11 15:51:10"
+            "time": "2014-02-28 14:39:44"
         }
     ],
     "packages-dev": [
