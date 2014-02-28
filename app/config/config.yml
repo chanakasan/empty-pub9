@@ -59,8 +59,8 @@ doctrine:
 doctrine_phpcr:
     session:
         backend:
-            type: jackrabbit
-            url: http://localhost:8080/server/
+            type: doctrinedbal
+            url: default
         workspace: default
         username: admin
         password: admin
